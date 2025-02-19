@@ -43,19 +43,64 @@ wow.init();
 const blockBenefits = document.querySelector('.block-benefits');
 if (blockBenefits) {
     const swiperElem = blockBenefits.querySelector('.swiper-container');
+    const swiperWrapper = swiperElem.querySelector('.swiper-wrapper');
+    const slides = Array.from(swiperWrapper.children);
+    const originalSlides = slides.slice();
 
-    new Swiper(swiperElem, {
+    originalSlides.forEach(slide => {
+        const cloneBefore = slide.cloneNode(true);
+        const cloneAfter = slide.cloneNode(true);
+        swiperWrapper.insertBefore(cloneBefore, swiperWrapper.firstChild);
+        swiperWrapper.appendChild(cloneAfter);
+    });
+
+    let swiper = new Swiper(swiperElem, {
         loop: true,
-        slidesPerView: 3,
-        spaceBetween: 16,
+        loopedSlides: originalSlides.length,
+        // slidesPerView: 3,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        // spaceBetween: 16,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+            type: 'bullets',
+            bulletElement: 'span',
+            renderBullet: function (index, className) {
+                if (index < originalSlides.length) {
+                    return `<span class="${className}"></span>`;
+                }
+                return '';
+            },
         },
-        // effect: 'cards',
-        // cardsEffect: {
-        //     perSlideRotate: 0,
-        //     slideShadows: false,
-        // },
+        mousewheel: {
+            forceToAxis: true,
+            sensitivity: 1,
+            releaseOnEdges: true,
+        },
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+        on: {
+            slideChange: function () {
+                let realIndex = this.realIndex % originalSlides.length;
+                document.querySelectorAll('.swiper-pagination .swiper-pagination-bullet')
+                    .forEach((bullet, i) => {
+                        bullet.classList.toggle('swiper-pagination-bullet-active', i === realIndex);
+                    });
+            },
+        },
     });
 }
+const demoModal = document.getElementById('demo-modal');
+
+document.querySelectorAll('[data-modal-demo="open"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        demoModal.classList.add('active');
+        document.body.classList.contains('mobile-menu-open') && document.body.classList.remove('mobile-menu-open');
+    });
+});
+document.querySelectorAll('[data-modal-action="close"]').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.modal').classList.remove('active'));
+});

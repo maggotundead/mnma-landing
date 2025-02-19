@@ -11,6 +11,9 @@
     align-items: center;
     justify-content: center;
     z-index: 100;
+    background: url('modal-bg.png') center no-repeat;
+    background-size: cover;
+
     @include tablet {
         padding: $container-padding-x-tablet;
     }
@@ -28,7 +31,7 @@
         left: 0;
         right: 0;
         background-color: rgba(#000, .24);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
     }
     &-body {
@@ -36,7 +39,8 @@
         display: flex;
         z-index: 2;
         width: calc(100vw - 32px);
-        max-width: 445px;
+        // max-width: 445px;
+        max-width: 515px;
         max-height: calc(100vh - 32px);
         max-height: calc(100svh - 32px);
         overflow-y: auto;
@@ -45,36 +49,50 @@
             display: none;
         }
     }
-    // &-close {
-    //     position: absolute;
-    //     top: 20px;
-    //     right: 20px;
-    //     color: $blue;
-    //     cursor: pointer;
-    //     @include mobile {
-    //         top: 16px;
-    //         right: 16px;
-    //     }
-    // }
+    &-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #fff;
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
     &-content {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        padding: 48px;
-        border-radius: 32px;
-        background-color: $grey-0;
         align-items: center;
+        width: 100%;
+        // padding: 48px;
+        padding: 56px;
+        border-radius: 24px;
+        background: $grey-0;
+        border: 1px solid rgba(#fff, 0.16);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
     }
     &-title {
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 32px;
+        line-height: 1;
+        color: #fff;
         font-weight: 400;
         // text-align: center;
+        &:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
+    &-subtitle {
+        margin-top: 8px;
+        color: #fff;
+        line-height: 1.5;
+        font-weight: 300;
     }
     &-form {
-        margin-top: 16px;
+        margin-top: 32px;
         width: 100%;
         display: flex;
+        max-width: 320px;
         input {
             display: block;
             width: 100%;
@@ -88,62 +106,18 @@
             background-color: transparent;
         }
     }
-    &-controls {
-        margin-top: 24px;
-        display: flex;
-        gap: 8px;
-
-        button {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            font-size: 14px;
-            line-height: 16px;
-            border-radius: 8px;
-            transition: $duration;
-        }
-        svg {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-        }
-    }
-    &-cancel {
-        border: 1px solid $grey-2;
-        color: #fff;
-        &:hover {
-            background-color: $grey-1;
-            border-color: #fff;
-        }
-    }
-    &-save {
-        color: $black;
-        background-color: #fff;
-        &:hover {
-            background-color: $theme-color;
-        }
-    }
-    &-delete {
-        color: #fff;
-        background-color: $red-error;
-        &:hover {
-            background-color: $red-error-hover;
-        }
-    }
 }
 
-#rename-elem-modal {
-    .modal-title {
-        text-align: left;
-    }
-    .modal-controls {
-        width: 100%;
-        justify-content: flex-end;
-    }
-}
 
-#delete-elem-modal {
-    .modal-controls {
-        justify-content: center;
+#demo-modal {
+    .contact-stages {
+        margin-top: 32px;
+    }
+
+    .stage {
+        display: none;
+        &.active {
+            display: block;
+        }
     }
 }

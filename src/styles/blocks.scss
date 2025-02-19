@@ -53,6 +53,11 @@
     }
     .img-wrapper {
         position: relative;
+        &.main-wrapper {
+            img {
+                border-radius: 12px;
+            }
+        }
         img {
             max-width: 100%;
         }
@@ -235,7 +240,8 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 410px;
+        // height: 410px;
+        height: 450px;
         // border-top: 1px solid #1A1A1A;
         border-top: 1px solid $grey-0;
         background: linear-gradient(180deg, #101010 22.55%, rgba(0, 0, 0, 0) 100%);
@@ -250,121 +256,179 @@
             margin-top: 104px;
         }
         &-slide {
-            padding-bottom: 104px;
+            // padding-bottom: 104px;
             height: auto;
+            transition: $duration;
+            // width: 558px;
+            width: 574px;
+            padding: 0 8px;
 
-            &[aria-label="1 / 5"] {
+            &-active {
+                z-index: 2;
                 .benefit-item {
-                    &-legal {
-                        li {
-                            &:nth-child(1) {
-                                transform: rotate(-4.97deg);
-                                left: 22px;
-                            }
-                            &:nth-child(2) {
-                                margin-top: 11px;
-                                transform: rotate(1.55deg);
-                                left: 36px;
-                            }
-                            &:nth-child(3) {
-                                transform: rotate(-3.89deg);
-                                left: 37px;
-                            }
-                        }
-                    }
+                    opacity: 1;
+                    // transform: scale(1.25);
+                    // transform-origin: center 275px;
+
+                    // > * {
+                    //     transform: scale(.8);
+                    // }
+
+                    // &::after {
+                    //     height: 1.6px;
+                    // }
+
+                    // *:is(
+                    //     .benefit-item-title,
+                    //     .benefit-item-subtitle,
+                    //     .benefit-item-advantages,
+                    //     .benefit-item-legal
+                    // ){
+                    //     // transform-origin: top left;
+                    //     transform-origin: left center;
+                    // }
+                    // *:is(
+                    //     .benefit-item-title,
+                    //     .benefit-item-subtitle,
+                    //     .benefit-item-advantages
+                    // ){
+                    //     top: -10px;
+                    // }
                 }
+
+                // .benefit-item-icon {
+                //     transform-origin: top right;
+                // }
+
+                // .benefit-item-legal {
+                //     top: calc(100% - 120px);
+                // }
             }
-            &[aria-label="2 / 5"]  {
-                .benefit-item {
-                    &-legal {
-                        li {
-                            &:nth-child(1) {
-                                transform: rotate(2.75deg);
-                                left: 21px;
-                            }
-                            &:nth-child(2) {
-                                margin-top: 6px;
-                                transform: rotate(-2.83deg);
-                                left: 84px;
-                            }
-                            &:nth-child(3) {
-                                margin-top: 5px;
-                                transform: rotate(3.75deg);
-                                left: 37px;
-                            }
-                        }
-                    }
-                }
-            }
-            &[aria-label="3 / 5"] {
-                .benefit-item {
-                    &-legal {
-                        li {
-                            &:nth-child(1) {
-                                transform: rotate(-1.31deg);
-                                left: 18px;
-                            }
-                            &:nth-child(2) {
-                                margin-top: 3px;
-                                transform: rotate(3.14deg);
-                                left: 44px;
-                            }
-                            &:nth-child(3) {
-                                margin-top: 10px;
-                                transform: rotate(-1.55deg);
-                                left: 20px;
-                            }
-                        }
-                    }
-                }
-            }
-            &[aria-label="4 / 5"]  {
-                .benefit-item {
-                    &-legal {
-                        li {
-                            &:nth-child(1) {
-                                margin-top: 7px;
-                                transform: rotate(1.21deg);
-                                left: 55px;
-                            }
-                            &:nth-child(2) {
-                                margin-top: 2px;
-                                transform: rotate(-3.35deg);
-                                left: 59px;
-                            }
-                            &:nth-child(3) {
-                                margin-top: 6px;
-                                transform: rotate(3.69deg);
-                                left: 86px;
-                            }
-                        }
-                    }
-                }
-            }
-            &[aria-label="5 / 5"]  {
-                .benefit-item {
-                    &-legal {
-                        li {
-                            &:nth-child(1) {
-                                margin-top: 15px;
-                                transform: rotate(-4.14deg);
-                                left: 56px;
-                            }
-                            &:nth-child(2) {
-                                margin-top: 1px;
-                                transform: rotate(0.25deg);
-                                left: 52px;
-                            }
-                            &:nth-child(3) {
-                                transform: rotate(-4.21deg);
-                                left: 8px;
-                            }
-                        }
-                    }
-                }
-            }
+            // &:nth-child(1) {
+            //     opacity: 0;
+            // }
+            // &:nth-child(5) {
+            //     opacity: 0;
+            // }
+            // &[aria-label="1 / 5"] {
+
+            // &:is([aria-label="1 / 15"], [aria-label="6 / 15"], [aria-label="11 / 15"]) {
+            //     .benefit-item {
+            //         &-legal {
+            //             li {
+            //                 &:nth-child(1) {
+            //                     transform: rotate(-4.97deg);
+            //                     left: 22px;
+            //                 }
+            //                 &:nth-child(2) {
+            //                     margin-top: 11px;
+            //                     transform: rotate(1.55deg);
+            //                     left: 36px;
+            //                 }
+            //                 &:nth-child(3) {
+            //                     transform: rotate(-3.89deg);
+            //                     left: 37px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // // &[aria-label="2 / 5"] {
+            // &:is([aria-label="2 / 15"], [aria-label="7 / 15"], [aria-label="12 / 15"]) {
+            //     .benefit-item {
+            //         &-legal {
+            //             li {
+            //                 &:nth-child(1) {
+            //                     transform: rotate(2.75deg);
+            //                     left: 21px;
+            //                 }
+            //                 &:nth-child(2) {
+            //                     margin-top: 6px;
+            //                     transform: rotate(-2.83deg);
+            //                     left: 84px;
+            //                 }
+            //                 &:nth-child(3) {
+            //                     margin-top: 5px;
+            //                     transform: rotate(3.75deg);
+            //                     left: 37px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // // &[aria-label="3 / 5"] {
+            // &:is([aria-label="3 / 15"], [aria-label="8 / 15"], [aria-label="13 / 15"]) {
+            //     .benefit-item {
+            //         &-legal {
+            //             li {
+            //                 &:nth-child(1) {
+            //                     transform: rotate(-1.31deg);
+            //                     left: 18px;
+            //                 }
+            //                 &:nth-child(2) {
+            //                     margin-top: 3px;
+            //                     transform: rotate(3.14deg);
+            //                     left: 44px;
+            //                 }
+            //                 &:nth-child(3) {
+            //                     margin-top: 10px;
+            //                     transform: rotate(-1.55deg);
+            //                     left: 20px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // // &[aria-label="4 / 5"] {
+            // &:is([aria-label="4 / 15"], [aria-label="9 / 15"], [aria-label="14 / 15"]) {
+            //     .benefit-item {
+            //         &-legal {
+            //             li {
+            //                 &:nth-child(1) {
+            //                     margin-top: 7px;
+            //                     transform: rotate(1.21deg);
+            //                     left: 55px;
+            //                 }
+            //                 &:nth-child(2) {
+            //                     margin-top: 2px;
+            //                     transform: rotate(-3.35deg);
+            //                     left: 59px;
+            //                 }
+            //                 &:nth-child(3) {
+            //                     margin-top: 6px;
+            //                     transform: rotate(3.69deg);
+            //                     left: 86px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // // &[aria-label="5 / 5"] {
+            // &:is([aria-label="5 / 15"], [aria-label="10 / 15"], [aria-label="15 / 15"]) {
+            //     .benefit-item {
+            //         &-legal {
+            //             li {
+            //                 &:nth-child(1) {
+            //                     margin-top: 15px;
+            //                     transform: rotate(-4.14deg);
+            //                     left: 56px;
+            //                 }
+            //                 &:nth-child(2) {
+            //                     margin-top: 1px;
+            //                     transform: rotate(0.25deg);
+            //                     left: 52px;
+            //                 }
+            //                 &:nth-child(3) {
+            //                     transform: rotate(-4.21deg);
+            //                     left: 8px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         }
         &-pagination {
+            margin-top: 24px;
             position: initial;
             display: flex;
             justify-content: center;
@@ -388,21 +452,34 @@
         width: 100%;
         // display: flex;
         position: relative;
-        padding: 32px 32px 130px;
+        // padding: 32px 32px 130px;
         // padding-bottom: 104px;
         background-color: $grey-0;
         border: 1px solid $grey-1;
         border-radius: 24px;
-        &::after {
-            content: '';
-            position: absolute;
-            height: 2px;
-            bottom: 104px;
-            left: 0;
-            right: 0;
-            background-color: #000;
+        display: flex;
+        flex-direction: column;
+
+        // opacity: .7;
+        opacity: .55;
+        transition: $duration;
+
+        > * {
+            transition: $duration;
         }
 
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     height: 2px;
+        //     bottom: 104px;
+        //     left: 0;
+        //     right: 0;
+        //     background-color: #000;
+        // }
+        &-body {
+            padding: 32px 32px 0;
+        }
         &-icon {
             position: absolute;
             top: 32px;
@@ -452,47 +529,52 @@
             }
         }
         &-legal {
-            padding-top: 8px;
-            position: absolute;
-            top: calc(100% - 104px);
-            left: 0;
-            right: 0;
+            margin-top: auto;
+            // padding-top: 8px;
+            // position: absolute;
+            // top: calc(100% - 104px);
+            // left: 0;
+            // right: 0;
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            z-index: 2;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: flex-start;
+            // z-index: 2;
+            padding: 42px 4px 4px;
 
             li {
                 padding: 16px 54px 16px 16px;
-                border-radius: 48px;
+                // border-radius: 48px;
+                border-radius: 24px;
                 background-color: $grey-1;
                 color: $grey-5;
                 font-size: 14px;
                 font-weight: 300;
                 line-height: 16px;
                 position: relative;
-                box-shadow: -70px 278px 80px rgba(0, 0, 0, 0.01), -45px 178px 73px rgba(0, 0, 0, 0.04), -25px 100px 62px rgba(0, 0, 0, 0.14), -11px 44px 46px rgba(0, 0, 0, 0.25), -3px 11px 25px rgba(0, 0, 0, 0.28);
+                // white-space: nowrap;
+                // box-shadow: -70px 278px 80px rgba(0, 0, 0, 0.01), -45px 178px 73px rgba(0, 0, 0, 0.04), -25px 100px 62px rgba(0, 0, 0, 0.14), -11px 44px 46px rgba(0, 0, 0, 0.25), -3px 11px 25px rgba(0, 0, 0, 0.28);
+
 
                 &:not(:last-child) {
                     margin-bottom: 2px;
                 }
 
-                &:nth-child(1) {
-                    z-index: 3;
-                }
-                &:nth-child(2) {
-                    z-index: 1;
-                }
-                &:nth-child(3) {
-                    z-index: 2;
-                    background-color: $grey-2;
-                    color: $grey-4;
+                // &:nth-child(1) {
+                //     z-index: 3;
+                // }
+                // &:nth-child(2) {
+                //     z-index: 1;
+                // }
+                // &:nth-child(3) {
+                //     z-index: 2;
+                //     background-color: $grey-2;
+                //     color: $grey-4;
 
-                    &::after {
-                        background-color: $grey-3;
-                    }
-                }
+                //     &::after {
+                //         background-color: $grey-3;
+                //     }
+                // }
                 &::after {
                     content: '';
                     width: 40px;
