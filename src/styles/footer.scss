@@ -1,0 +1,21 @@
+.footer {
+    padding: 24px 0;
+    color: $grey-4;
+    font-size: 14px;
+    line-height: 24px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    *:is(.contacts, .policies) {
+        display: flex;
+    }
+
+    .contacts {
+        gap: 48px;
+    }
+    .policies {
+        gap: 44px;
+    }
+}

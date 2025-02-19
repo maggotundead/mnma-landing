@@ -1,0 +1,21 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    .container {
+        padding-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        color: $theme-color;
+        margin: 0 auto;
+        svg {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}

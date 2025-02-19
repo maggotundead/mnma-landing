@@ -1,0 +1,112 @@
+.btn {
+    height: 40px;
+    border-radius: 40px;
+    border-width: 1px;
+    border-style: solid;
+    transition: $duration;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: transparent;
+    color: #fff;
+    border-color: $grey-1;
+
+    // transparent by default
+    // &.transparent-btn {
+    //     background-color: transparent;
+    //     color: #fff;
+    //     border-color: $grey-1;
+    // }
+
+    @media (hover: hover) {
+        &:hover {
+            color: $black;
+            border-color: #fff;
+            background-color: #fff;
+        }
+    }
+
+    &.theme-btn {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $black;
+        &:has(span:first-child) {
+            padding-left: 10px;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                span {
+                    color: #fff;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+                svg {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        span {
+            // position: relative;
+            // flex-shrink: 0;
+            color: $black;
+            &:first-child {
+                margin-right: 8px;
+            }
+
+            &::before {
+                content: '';
+                opacity: 0;
+                transition: $duration;
+                width: 32px;
+                height: 32px;
+                background-color: $black;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &.wow {
+        transition: initial;
+    }
+
+    span {
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+        transition: $duration;
+    }
+}
+
+.page-title {
+    font-size: 56px;
+    line-height: 1.1428;
+    font-weight: 400;
+}
+
+.block-title {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 300;
+
+    + .title-descr {
+        margin-top: 16px;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 300;
+        color: $grey-3;
+    }
+}
