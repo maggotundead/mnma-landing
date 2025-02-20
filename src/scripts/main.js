@@ -40,6 +40,20 @@ let wow = new WOW(
 );
 wow.init();
 
+const header = document.querySelector('.header');
+if (header) {
+    const burgerBtn = header.querySelector('.menu-burger-btn');
+    const menu = header.querySelector('.menu');
+
+    burgerBtn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+        menu.classList.remove('active');
+    });
+}
+
 const blockBenefits = document.querySelector('.block-benefits');
 if (blockBenefits) {
     const swiperElem = blockBenefits.querySelector('.swiper-container');
@@ -56,6 +70,10 @@ if (blockBenefits) {
 
     let swiper = new Swiper(swiperElem, {
         loop: true,
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+        },
         loopedSlides: originalSlides.length,
         // slidesPerView: 3,
         slidesPerView: 'auto',
@@ -93,14 +111,27 @@ if (blockBenefits) {
         },
     });
 }
-const demoModal = document.getElementById('demo-modal');
 
-document.querySelectorAll('[data-modal-demo="open"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-        demoModal.classList.add('active');
-        document.body.classList.contains('mobile-menu-open') && document.body.classList.remove('mobile-menu-open');
+const demoModal = document.getElementById('demo-modal');
+if (demoModal) {
+    const firstStage = demoModal.querySelector('.stage-1');
+    const emailStage = demoModal.querySelector('.stage-2');
+    const thanksStage = demoModal.querySelector('.stage-3');
+    const emailProceedBtn = demoModal.querySelector('.email-proceed-btn');
+
+    emailProceedBtn.addEventListener('click', () => {
+        firstStage.classList.remove('active');
+        emailStage.classList.add('active');
+    })
+
+    document.querySelectorAll('[data-modal-demo="open"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            demoModal.classList.add('active');
+            // document.body.classList.contains('mobile-menu-open') && document.body.classList.remove('mobile-menu-open');
+        });
     });
-});
+}
+
 document.querySelectorAll('[data-modal-action="close"]').forEach(btn => {
     btn.addEventListener('click', () => btn.closest('.modal').classList.remove('active'));
 });
