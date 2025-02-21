@@ -3,6 +3,15 @@
     padding-bottom: 164px;
     position: relative;
 
+    @include tablet {
+        padding-bottom: 120px;
+    }
+
+    @include mobile {
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+
     .bg {
         position: absolute;
         top: 215px;
@@ -10,6 +19,22 @@
         left: calc(50vw - 540px - 180px);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
+        width: 1080px;
+
+        @include tablet {
+            width: 640px;
+            left: calc(50vw - 320px - 135px);
+        }
+
+        @include mobile {
+            width: 465px;
+            top: 268px;
+            left: calc(50vw - 233px - 90px);
+        }
+
+        img {
+            width: 100%;
+        }
     }
     .container {
         display: flex;
@@ -29,44 +54,80 @@
         line-height: 1.778;
         color: $grey-4;
         max-width: 565px;
+        @include mobile {
+            margin-top: 8px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
     }
     .btns {
         margin-top: 32px;
         display: flex;
         gap: 8px;
+        @include mobile {
+            margin-top: 24px;
+        }
     }
 
-    .figure {
+    .figure-wrapper {
         margin-top: 72px;
         position: relative;
+
+        @include tablet {
+            max-width: 80vw;
+        }
+
+        @include mobile {
+            margin: 48px auto 0;
+            max-width: calc(100% - 32px);
+        }
+    }
+    .screen {
         background: #000000;
         // outline: 12px solid #1a1a1a;
         outline: 12px solid $grey-0;
         border: 1px solid $grey-1;
         padding: 16px;
         border-radius: 24px;
+        @include mobile {
+            outline-width: 3px;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        img {
+            border-radius: 6px;
+            @include mobile {
+                border-radius: 4px;
+            }
+        }
     }
+
     *:is(.profiles, .files) {
         position: absolute;
         display: flex;
         flex-direction: column;
     }
+
     .img-wrapper {
         position: relative;
-        &.main-wrapper {
-            img {
-                border-radius: 12px;
-            }
-        }
         img {
             max-width: 100%;
         }
     }
+
     .profiles {
+        max-width: 249px;
         bottom: 60px;
         left: -68px;
+
+        @include mobile {
+            max-width: 26.6%;
+            bottom: 6.43%;
+            left: -7.288%;
+        }
+
         .img-wrapper {
-            max-width: 249px;
+            max-width: 100%;
             filter: drop-shadow(19px 15px 24px rgba(0, 0, 0, 0.2)) drop-shadow(76px 60px 39px rgba(0, 0, 0, 0.04)) drop-shadow(43px 34px 33px rgba(0, 0, 0, 0.12));
 
             &:nth-child(1) {
@@ -89,9 +150,17 @@
     .files {
         bottom: 52px;
         right: -18px;
+        max-width: 237px;
+
+        @include mobile {
+            bottom: 5.573%;
+            right: -1.9292%;
+            max-width: 25.4%;
+        }
+
         .img-wrapper {
-            max-width: 237px;
             filter: drop-shadow(-11px 22px 24px rgba(0, 0, 0, 0.19)) drop-shadow(-24px 48px 32px rgba(0, 0, 0, 0.11)) drop-shadow(-43px 86px 38px rgba(0, 0, 0, 0.03)) drop-shadow(-3px 5px 13px rgba(0, 0, 0, 0.22));
+            max-width: 100%;
 
             &:nth-child(1) {
                 z-index: 3;
@@ -103,6 +172,13 @@
                 margin-top: 6px;
                 left: -35px;
                 z-index: 1;
+
+                @include mobile {
+                    margin-top: 2px;
+                    // left: -3.75%;
+                    left: -7.75%;
+                }
+
                 img {
                     transform: rotate(4deg);
                 }
@@ -111,6 +187,13 @@
                 margin-top: 4px;
                 left: 20px;
                 z-index: 2;
+
+                @include mobile {
+                    // left: 2.14%;
+                    left: 7.14%;
+                    margin-top: 0;
+                }
+
                 img {
                     transform: rotate(-2deg);
                 }
@@ -122,6 +205,11 @@
 .block-advantages {
     position: relative;
     padding-bottom: 88px;
+
+    @include mobile {
+        padding-bottom: 32px;
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -138,6 +226,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 16px 8px;
+
+        @include mobile {
+            margin-top: 24px;
+            grid-template-columns: 1fr;
+        }
     }
     .advantage-item {
         padding: 32px;
@@ -146,7 +239,16 @@
         // border: 1px solid #1a1a1a;
         border: 1px solid $grey-0;
 
+        @include mobile {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
         &-icon {
+            @include mobile {
+                margin-right: 16px;
+            }
             svg {
                 max-width: 32px;
                 max-height: 32px;
@@ -156,12 +258,20 @@
             margin-top: 8px;
             font-size: 20px;
             line-height: 1.25;
+            @include mobile {
+                max-width: calc(100% - 48px);
+                margin-top: 0;
+                font-size: 16px;
+            }
         }
         &-descr {
             margin-top: 16px;
             font-weight: 300;
             line-height: 1.5;
             color: $grey-3;
+            @include mobile {
+                width: 100%;
+            }
         }
     }
 }
@@ -172,30 +282,62 @@
     overflow: hidden;
     position: relative;
 
+    @include tablet {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    @include mobile {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
     .bg {
         position: absolute;
         top: 32px;
         right: 0;
         bottom: 0;
+
+        @include mobile {
+            display: none;
+        }
+
         img {
             object-position: bottom right;
         }
     }
 
     .container {
-        display: flex;
+        // display: flex;
+        display: grid;
+        grid-template-columns: 344px 1fr;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
 
-    .text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    // .text {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: flex-start;
+    // }
+
+    .block-title {
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .steps-list {
         margin-top: 40px;
         list-style: none;
-        max-width: 344px;
+        // max-width: 344px;
+        grid-column: 1;
+        grid-row: 2;
+
+        @include mobile {
+            margin-top: 20px;
+            max-width: 100%;
+        }
     }
 
     .step-item {
@@ -204,6 +346,9 @@
 
         &:not(:last-child) {
             margin-bottom: 24px;
+            @include mobile {
+                margin-bottom: 12px;
+            }
         }
 
         &-title {
@@ -221,19 +366,44 @@
 
     .btn {
         margin-top: 24px;
+        grid-column: 1;
+        grid-row: 3;
+        @include mobile {
+            grid-row: 4;
+            margin-top: 32px;
+            justify-self: center;
+        }
     }
 
     .scheme {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-grow: 1;
+        // flex-grow: 1;
+        grid-column: 2;
+        grid-row-start: 1;
+        grid-row-end: span 3;
+
+        @include mobile {
+            margin-top: 24px;
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
 }
 
 .block-benefits {
     padding-top: 88px;
     position: relative;
+
+    @include mobile {
+        padding-top: 32px;
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -245,6 +415,10 @@
         // border-top: 1px solid #1A1A1A;
         border-top: 1px solid $grey-0;
         background: linear-gradient(180deg, #101010 22.55%, rgba(0, 0, 0, 0) 100%);
+
+        @include mobile {
+            height: 410px;
+        }
     }
 
     *:is(.block-title, .title-descr) {
@@ -254,6 +428,14 @@
     .swiper {
         &-container {
             margin-top: 104px;
+
+            @include tablet {
+                margin-top: 48px;
+            }
+
+            @include mobile {
+                margin-top: 24px;
+            }
         }
         &-slide {
             // padding-bottom: 104px;
@@ -262,6 +444,11 @@
             // width: 558px;
             width: 574px;
             padding: 0 8px;
+
+            @include mobile {
+                max-width: 480px;
+                width: calc(100vw - 16px);
+            }
 
             &-active {
                 z-index: 2;
@@ -597,6 +784,14 @@
 .block-product-info {
     padding-top: 180px;
 
+    @include tablet {
+        padding-top: 120px;
+    }
+
+    @include mobile {
+        padding-top: 64px;
+    }
+
     .block-title {
         text-align: center;
     }
@@ -606,11 +801,24 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 16px;
+
+        @include tablet {
+            margin-top: 48px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            margin-top: 32px;
+        }
     }
 
     .compare-col {
         position: relative;
         border-radius: 36px;
+
+        @include mobile {
+            border-radius: 24px;
+        }
 
         &:nth-child(1) {
             background-color: $theme-color;
@@ -618,12 +826,21 @@
             background-position: center;
             background-repeat: repeat;
             background-size: 742px 742px;
+
+            @include mobile {
+                grid-row: 2;
+            }
+
             &::before {
                 content: '';
                 position: absolute;
                 inset: 4px;
                 border-radius: 32px;
                 background-color: $grey-0;
+
+                @include mobile {
+                    border-radius: 20px;
+                }
             }
             .compare-col-icon {
                 background-color: $theme-color;
@@ -631,11 +848,23 @@
         }
         &:nth-child(2) {
             border: 1px solid $grey-2;
+
+            @include mobile {
+                grid-row: 1;
+            }
         }
 
         &-inner {
             padding: 40px;
             position: relative;
+
+            @include tablet {
+                padding: 32px;
+            }
+
+            @include mobile {
+                padding: 28px;
+            }
         }
         &-icon {
             position: absolute;
@@ -657,6 +886,12 @@
             font-size: 24px;
             font-weight: 300;
             line-height: 1;
+            padding-right: 32px;
+
+            @include mobile {
+                font-size: 20px;
+                line-height: 1.2;
+            }
         }
         &-features {
             margin-top: 32px;
@@ -664,10 +899,21 @@
             grid-template-columns: repeat(3, 1fr);
             row-gap: 24px;
             column-gap: 24px;
+
+            @include tablet {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include mobile {
+                margin-top: 16px;
+                grid-template-columns: 1fr;
+                row-gap: 16px;
+            }
         }
     }
 
     .feature-item {
+        font-size: 16px;
         font-weight: 300;
         &-title {
             line-height: 1;
@@ -730,11 +976,29 @@
         // grid-template-columns: repeat(3, 1fr);
         // justify-items: space-between;
         justify-content: space-between;
+
+        @include tablet {
+            padding: 0;
+        }
+
+        @include mobile {
+            margin-top: 24px;
+            flex-direction: column;
+            gap: 16px;
+        }
     }
 
     .advantage-item {
         display: flex;
+        width: calc((100% - 48px) / 3);
         max-width: 376px;
+        font-size: 16px;
+
+        @include mobile {
+            width: 100%;
+            max-width: 100%;
+        }
+
         &-icon {
             width: 24px;
             height: 24px;
@@ -759,22 +1023,52 @@
 
 .block-faq {
     padding-top: 180px;
+
+    @include tablet {
+        padding-top: 120px;
+    }
+
+    @include mobile {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
     .faq-inner {
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 16px;
         max-width: 900px;
+
+        @include tablet {
+            grid-template-columns: 2fr 3fr;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            row-gap: 16px;
+        }
     }
+
     .faq-item {
         &:not(:last-child) {
             margin-bottom: 24px;
+
+            @include mobile {
+                margin-bottom: 16px;
+            }
         }
 
         &-title {
             font-size: 20px;
             line-height: 1.6;
+
+            @include mobile {
+                font-size: 16px;
+                line-height: 1.5;
+            }
         }
+
         &-descr {
             margin-top: 8px;
             color: $grey-4;
@@ -790,6 +1084,15 @@
     color: $black;
     overflow: hidden;
     position: relative;
+
+    @include tablet {
+        padding-top: 120px;
+    }
+
+    @include mobile {
+        padding-top: 0;
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -798,21 +1101,61 @@
         right: 0;
         bottom: 0;
         background-color: $theme-color;
+
+        @include tablet {
+            top: 120px;
+        }
+
+        @include mobile {
+            top: 0;
+        }
     }
     .container {
         padding-top: 126px;
         padding-bottom: 126px;
         min-height: 620px;
+
+        @include tablet {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            min-height: 480px;
+        }
+
+        @include mobile {
+            padding-top: 32px;
+            padding-bottom: 488px;
+        }
     }
+
     .text {
         max-width: 440px;
+        position: relative;
+        z-index: 2;
+
+        @include tablet {
+            max-width: 350px;
+        }
+
+        @include mobile {
+            max-width: 100%;
+        }
     }
+
     .block-title {
         line-height: 1.2;
+        @include mobile {
+            font-size: 26px;
+            line-height: 32px;
+        }
     }
+
     .advantages {
         margin-top: 32px;
         list-style: none;
+
+        @include mobile {
+            margin-top: 24px;
+        }
 
         li {
             position: relative;
@@ -852,9 +1195,23 @@
         position: absolute;
         left: calc(366px + #{$container-padding-x});
         bottom: 0;
+        pointer-events: none;
+
+        @include tablet {
+            left: calc(260px + #{$container-padding-x-tablet});
+        }
+        @include mobile {
+            left: initial;
+            right: -80px;
+        }
+
         img {
             width: 74vw;
             max-width: 1070px;
+
+            @include mobile {
+                width: 749px;
+            }
         }
     }
 }

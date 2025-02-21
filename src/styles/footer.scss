@@ -3,13 +3,30 @@
     color: $grey-4;
     font-size: 14px;
     line-height: 24px;
+
+    @include mobile {
+        padding-top: 16px;
+        padding-bottom: 12px;
+    }
+
     .container {
         display: flex;
         justify-content: space-between;
+
+        @include mobile {
+            // flex-wrap: wrap;
+            flex-direction: column;
+            gap: 16px;
+        }
     }
 
     *:is(.contacts, .policies) {
         display: flex;
+
+        @include mobile {
+            // width: 100%;
+            justify-content: space-between;
+        }
     }
 
     .contacts {
@@ -17,5 +34,12 @@
     }
     .policies {
         gap: 44px;
+    }
+
+    .copyright {
+        @include mobile {
+            order: 3;
+            text-align: center;
+        }
     }
 }

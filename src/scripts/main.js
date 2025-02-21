@@ -79,6 +79,7 @@ if (blockBenefits) {
         slidesPerView: 'auto',
         centeredSlides: true,
         // spaceBetween: 16,
+        slideToClickedSlide: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -114,15 +115,18 @@ if (blockBenefits) {
 
 const demoModal = document.getElementById('demo-modal');
 if (demoModal) {
-    const firstStage = demoModal.querySelector('.stage-1');
-    const emailStage = demoModal.querySelector('.stage-2');
-    const thanksStage = demoModal.querySelector('.stage-3');
-    const emailProceedBtn = demoModal.querySelector('.email-proceed-btn');
+    // const firstStage = demoModal.querySelector('.stage-1');
+    // const emailStage = demoModal.querySelector('.stage-2');
+    // const thanksStage = demoModal.querySelector('.stage-3');
 
-    emailProceedBtn.addEventListener('click', () => {
-        firstStage.classList.remove('active');
-        emailStage.classList.add('active');
-    })
+    const emailStage = demoModal.querySelector('.stage-email');
+    const thanksStage = demoModal.querySelector('.stage-thanks');
+
+    // const emailProceedBtn = demoModal.querySelector('.email-proceed-btn');
+    // emailProceedBtn.addEventListener('click', () => {
+    //     firstStage.classList.remove('active');
+    //     emailStage.classList.add('active');
+    // })
 
     document.querySelectorAll('[data-modal-demo="open"]').forEach(btn => {
         btn.addEventListener('click', () => {
